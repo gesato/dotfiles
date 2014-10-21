@@ -23,6 +23,7 @@ set showmatch
 set smartcase
 set smartindent
 set smarttab
+set title
 set tabstop=2
 set wildmenu
 
@@ -30,6 +31,14 @@ set wildmenu
 imap [ []<Left>
 imap { {}<Left>
 imap ( ()<Left>
+
+" 最後に編集した際のカーソル位置を復元
+if has("autocmd")
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal! g'\"" |
+  \ endif
+endif
 
 " grep時にQuickFixウィンドウを開く
 autocmd QuickFixCmdPost *grep* copen
@@ -79,6 +88,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'nelstrom/vim-visual-star-search'
 NeoBundle 'soramugi/auto-ctags.vim'
+NeoBundle 'scrooloose/syntastic'
 
 call neobundle#end()
 filetype plugin indent on
