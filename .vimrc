@@ -89,6 +89,10 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'nelstrom/vim-visual-star-search'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'cakebaker/scss-syntax.vim'
 
 call neobundle#end()
 filetype plugin indent on
@@ -101,8 +105,10 @@ NeoBundleCheck
 " unite
 " insertモードから開始
 let g:unite_enable_start_insert=1
+" yank履歴をuniteから呼び出す
+let g:unite_source_history_yank_enable = 1
 
-" ESCキーを2回押すと終了する
+" ESCキーを2回押すとuniteを終了させる
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
@@ -110,12 +116,12 @@ nmap <Space> [unite]
 nnoremap <silent> [unite]b :Unite buffer<CR>
 nnoremap <silent> [unite]f :Unite -buffer-name=file file<CR>
 nnoremap <silent> [unite]u :Unite file_mru<CR>
+nnoremap <silent> [unite]h :Unite history/yank<CR>
 
 " unite-rails
 nnoremap <silent>[unite]m :Unite rails/model<CR>
 nnoremap <silent>[unite]v :Unite rails/view<CR>
 nnoremap <silent>[unite]c :Unite rails/controller<CR>
-nnoremap <silent>[unite]h :Unite rails/helper<CR>
 nnoremap <silent>[unite]j :Unite rails/javascript<CR>
 nnoremap <silent>[unite]y :Unite rails/stylesheet<CR>
 
@@ -129,3 +135,18 @@ nnoremap <silent>[unite]r :Unite rails/route<CR>
 " auto-ctags
 " バッファ保存時に自動的にCtagを作成
 let g:auto_ctags=1
+
+" syntastic
+let g:syntastic_mode_map = {
+  \ 'mode': 'passive',
+  \ 'active_filetypes': ['ruby']
+\ }
+let g:syntastic_ruby_checkers = ['rubocop']
+
+" open-browser.vim
+" カーソル下のURLをブラウザで開く
+nmap <Space>o <Plug>(openbrowser-open)
+vmap <Space>o <Plug>(openbrowser-open)
+
+" Googleで検索
+nnoremap <Space>og :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
