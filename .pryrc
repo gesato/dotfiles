@@ -38,4 +38,4 @@ Pry.commands.alias_command 'n', 'next'
 Pry.commands.alias_command 'f', 'finish'
 
 # エディタの設定
-Pry.config.editor = "vim"
+# Pry.config.editor = "vim"

@@ -5,6 +5,8 @@
 syntax on
 colorscheme desert
 set autoindent
+set backspace=indent,eol,start
+set clipboard+=unnamed
 set confirm
 set expandtab
 set hidden
@@ -26,6 +28,12 @@ set smarttab
 set title
 set tabstop=2
 set wildmenu
+
+set laststatus=2 
+set statusline=%{fugitive#statusline()}
+set statusline+=\ %<%f\ %m%r%h%w
+set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
+set statusline+=%=%l/%L,%c%V%8P
 
 " かっこの終端を自動入力
 imap [ []<Left>
@@ -78,6 +86,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'basyura/unite-rails'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
@@ -93,6 +102,8 @@ NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'jiangmiao/simple-javascript-indenter'
 
 call neobundle#end()
 filetype plugin indent on
@@ -118,6 +129,7 @@ nnoremap <silent> [unite]f :Unite -buffer-name=file file<CR>
 nnoremap <silent> [unite]u :Unite file_mru<CR>
 nnoremap <silent> [unite]h :Unite history/yank<CR>
 
+
 " unite-rails
 nnoremap <silent>[unite]m :Unite rails/model<CR>
 nnoremap <silent>[unite]v :Unite rails/view<CR>
@@ -132,9 +144,17 @@ nnoremap <silent>[unite]l :Unite rails/lib<CR>
 nnoremap <silent>[unite]t :Unite rails/rake<CR>
 nnoremap <silent>[unite]r :Unite rails/route<CR>
 
+" neocomplete.vim
+let g:neocomplete#enable_at_startup=1
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+
 " auto-ctags
 " バッファ保存時に自動的にCtagを作成
 let g:auto_ctags=1
+
 
 " syntastic
 let g:syntastic_mode_map = {
@@ -143,6 +163,7 @@ let g:syntastic_mode_map = {
 \ }
 let g:syntastic_ruby_checkers = ['rubocop']
 
+
 " open-browser.vim
 " カーソル下のURLをブラウザで開く
 nmap <Space>o <Plug>(openbrowser-open)
@@ -150,3 +171,8 @@ vmap <Space>o <Plug>(openbrowser-open)
 
 " Googleで検索
 nnoremap <Space>og :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
+
+
+" simple-javascript-indenter
+" switch文のインデントを綺麗にする
+let g:SimpleJsIndenter_CaseIndentLevel=-1
