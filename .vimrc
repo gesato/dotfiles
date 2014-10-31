@@ -29,16 +29,11 @@ set title
 set tabstop=2
 set wildmenu
 
-set laststatus=2 
+set laststatus=2
 set statusline=%{fugitive#statusline()}
 set statusline+=\ %<%f\ %m%r%h%w
 set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
 set statusline+=%=%l/%L,%c%V%8P
-
-" かっこの終端を自動入力
-imap [ []<Left>
-imap { {}<Left>
-imap ( ()<Left>
 
 " 最後に編集した際のカーソル位置を復元
 if has("autocmd")
@@ -47,6 +42,9 @@ if has("autocmd")
   \   exe "normal! g'\"" |
   \ endif
 endif
+
+" 保存時に行末の空白を削除
+autocmd BufWritePre * :%s/\s\+$//ge
 
 " grep時にQuickFixウィンドウを開く
 autocmd QuickFixCmdPost *grep* copen
@@ -103,7 +101,6 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'jiangmiao/simple-javascript-indenter'
 
 call neobundle#end()
 filetype plugin indent on
@@ -171,8 +168,3 @@ vmap <Space>o <Plug>(openbrowser-open)
 
 " Googleで検索
 nnoremap <Space>og :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
-
-
-" simple-javascript-indenter
-" switch文のインデントを綺麗にする
-let g:SimpleJsIndenter_CaseIndentLevel=-1
