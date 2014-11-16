@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 ln -s ~/dotfiles/.pryrc ~/.pryrc
 ln -s ~/dotfiles/.vimrc ~/.vimrc
 ln -s ~/dotfiles/.zshrc ~/.zshrc
