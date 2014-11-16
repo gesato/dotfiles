@@ -1,4 +1,4 @@
-# hirbの設定
+# Hirb
 begin
   require 'hirb'
 rescue LoadError
@@ -23,7 +23,7 @@ if defined? Hirb
   Hirb.enable
 end
 
-# awesome_printの設定
+# awesome_print
 begin
   require "awesome_print"
   AwesomePrint.pry!
@@ -31,11 +31,8 @@ rescue LoadError => err
   puts "no awesome_print :("
 end
 
-# pry-debuggerのショートカット
+# pry-debugger shortcut
 Pry.commands.alias_command 'c', 'continue'
 Pry.commands.alias_command 's', 'step'
 Pry.commands.alias_command 'n', 'next'
 Pry.commands.alias_command 'f', 'finish'
-
-# エディタの設定
-# Pry.config.editor = "vim"
