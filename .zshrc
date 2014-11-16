@@ -81,9 +81,11 @@ source $ZSH/oh-my-zsh.sh
 # rbenv setting
 eval "$(rbenv init -)"
 
+# tmuxinator setting
+source ~/.tmuxinator/completion/tmuxinator.zsh
+
 # vim
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vim='env LANG=ja_JP.UTF-8 reattach-to-user-namespace /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
 # jenkins
 alias jenkins='java -jar /usr/local/opt/jenkins/libexec/jenkins.war'
