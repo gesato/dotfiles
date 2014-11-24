@@ -78,10 +78,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# rbenv setting
+# zsh option
+setopt nonomatch
+
+# alias
+alias -g G='| grep'
+alias -g L='| less'
+
+# rbenv
 eval "$(rbenv init -)"
 
-# tmuxinator setting
+# tmuxinator
 source ~/.tmuxinator/completion/tmuxinator.zsh
 
 # vim
@@ -89,3 +96,20 @@ alias vim='env LANG=ja_JP.UTF-8 reattach-to-user-namespace /Applications/MacVim.
 
 # jenkins
 alias jenkins='java -jar /usr/local/opt/jenkins/libexec/jenkins.war'
+
+# peco
+function peco-select-history() {
+  local tac
+  if which tac > /dev/null; then
+    tac="tac"
+  else
+    tac="tail -r"
+  fi
+  BUFFER=$(\history -n 1 | \
+      eval $tac | \
+      peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
