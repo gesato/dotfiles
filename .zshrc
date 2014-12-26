@@ -84,6 +84,7 @@ setopt nonomatch
 # alias
 alias -g G='| grep'
 alias -g L='| less'
+alias -g P='| peco'
 
 # rbenv
 eval "$(rbenv init -)"
