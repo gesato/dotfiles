@@ -140,12 +140,14 @@ nnoremap <silent>[unite]l :Unite rails/lib<CR>
 nnoremap <silent>[unite]t :Unite rails/rake<CR>
 nnoremap <silent>[unite]r :Unite rails/route<CR>
 
+
 " neocomplete.vim
 let g:neocomplete#enable_at_startup=1
 
 if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
+
 
 " auto-ctags
 " バッファ保存時に自動的にCtagを作成
@@ -159,14 +161,17 @@ let g:syntastic_mode_map = {
 \ }
 let g:syntastic_ruby_checkers = ['rubocop']
 
+
 " vim-coffee-script
+" コンパイル後のjsをプレビューする
 cnoremap cf CoffeeWatch vert
+" CoffeeLintの結果を表示する
 cnoremap cl CoffeeLint \| cwindow
+
 
 " open-browser.vim
 " カーソル下のURLをブラウザで開く
 nmap <Space>o <Plug>(openbrowser-open)
 vmap <Space>o <Plug>(openbrowser-open)
-
 " Googleで検索
 nnoremap <Space>og :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
