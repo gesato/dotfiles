@@ -80,25 +80,43 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" My bundles here
+" ファイラ
 NeoBundle 'Shougo/unite.vim'
+" unite.vimで最近使ったファイルを表示
 NeoBundle 'Shougo/neomru.vim'
+" Rails向けuniteコマンドを提供
 NeoBundle 'basyura/unite-rails'
+" 補完
 NeoBundle 'Shougo/neocomplete.vim'
+" ファイルをツリー表示
 NeoBundle 'scrooloose/nerdtree'
+" Gitを便利に
 NeoBundle 'tpope/vim-fugitive'
+" Controller-Model間のファイル移動などを便利に
 NeoBundle 'tpope/vim-rails'
+" Ctrl+- を2回押すと選択行をコメントアウト
 NeoBundle 'tomtom/tcomment_vim'
+" 対になるendを自動で挿入
 NeoBundle 'tpope/vim-endwise'
+" Vimの日本語ドキュメント
 NeoBundle 'vim-jp/vimdoc-ja'
+" HTML、CSSの記述を効率化'
 NeoBundle 'mattn/emmet-vim'
+" シングル-ダブルクォート間の置換など
 NeoBundle 'tpope/vim-surround'
+" *を押すとvisualモードで選択した文字列を検索
 NeoBundle 'nelstrom/vim-visual-star-search'
+" 自動でctag作成
 NeoBundle 'soramugi/auto-ctags.vim'
+" 構文解析インターフェイス
 NeoBundle 'scrooloose/syntastic'
+" true-falseなどの切替を便利に
 NeoBundle 'AndrewRadev/switch.vim'
+" エディタ上のURLを開く or 選択範囲をgoogle検索
 NeoBundle 'tyru/open-browser.vim'
+" シンタックス & コンパイル & 静的解析
 NeoBundle 'kchmck/vim-coffee-script'
+" SCSSシンタックス
 NeoBundle 'cakebaker/scss-syntax.vim'
 
 call neobundle#end()
