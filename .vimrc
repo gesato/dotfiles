@@ -100,7 +100,6 @@ NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'jelera/vim-javascript-syntax'
 
 call neobundle#end()
 filetype plugin indent on
@@ -160,6 +159,9 @@ let g:syntastic_mode_map = {
 \ }
 let g:syntastic_ruby_checkers = ['rubocop']
 
+" vim-coffee-script
+cnoremap cf CoffeeWatch vert
+cnoremap cl CoffeeLint \| cwindow
 
 " open-browser.vim
 " カーソル下のURLをブラウザで開く
