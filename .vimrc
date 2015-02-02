@@ -35,6 +35,10 @@ set statusline+=\ %<%f\ %m%r%h%w
 set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
 set statusline+=%=%l/%L,%c%V%8P
 
+" window分割のalias
+nnoremap <Space>- <C-w>s
+nnoremap <Space>\| <C-w>v
+
 " 最後に編集した際のカーソル位置を復元
 if has("autocmd")
   autocmd BufReadPost *
