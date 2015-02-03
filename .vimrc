@@ -43,6 +43,12 @@ set statusline+=%=%l/%L,%c%V%8P
 nnoremap <Space>- <C-w>s
 nnoremap <Space>\| <C-w>v
 
+" window拡大・縮小のalias
+nnoremap <Space>+- 5<C-w>+
+nnoremap <Space>-- 5<C-w>-
+nnoremap <Space>+\| 5<C-w>>
+nnoremap <Space>-\| 5<C-w><
+
 " 最後に編集した際のカーソル位置を復元
 if has("autocmd")
   autocmd BufReadPost *
