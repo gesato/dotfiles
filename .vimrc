@@ -34,10 +34,20 @@ if has("mouse")
 endif
 
 set laststatus=2
-set statusline=%{fugitive#statusline()}
-set statusline+=\ %<%f\ %m%r%h%w
-set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
-set statusline+=%=%l/%L,%c%V%8P
+set statusline=%{fugitive#statusline()}                              " gitのステータス
+set statusline+=\ %<
+set statusline+=\ %f                                                 " ファイル名(相対パス)
+set statusline+=\ %m                                                 " 修正を表すフラグ(+ OR -)
+set statusline+=%r                                                   " 読み込み専用フラグ
+set statusline+=%h                                                   " ヘルプフラグ
+set statusline+=%w                                                   " プレビューウィンドウフラグ
+set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}   " ファイルエンコーディング・ファイルフォーマット
+set statusline+=%=                                                   " 以降右寄せ
+set statusline+=%l/%L,%c%V                                           " 現在の行 / 総行数, 現在列
+set statusline+=%8P                                                  " カーソル位置%
+set statusline+=\ %#warningmsg#                                      " syntasticの設定
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 " window分割のalias
 nnoremap <Space>- <C-w>s
@@ -141,7 +151,10 @@ NeoBundleCheck
 " プラグインの設定
 """"""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""
 " unite
+""""""""""""""""""""""""""""""
+
 " insertモードから開始
 let g:unite_enable_start_insert=1
 " yank履歴をuniteから呼び出す
@@ -158,13 +171,15 @@ nnoremap <silent> [unite]u :Unite file_mru<CR>
 nnoremap <silent> [unite]h :Unite history/yank<CR>
 
 
+""""""""""""""""""""""""""""""
 " unite-rails
+""""""""""""""""""""""""""""""
+
 nnoremap <silent>[unite]m :Unite rails/model<CR>
 nnoremap <silent>[unite]v :Unite rails/view<CR>
 nnoremap <silent>[unite]c :Unite rails/controller<CR>
 nnoremap <silent>[unite]j :Unite rails/javascript<CR>
 nnoremap <silent>[unite]y :Unite rails/stylesheet<CR>
-
 nnoremap <silent>[unite]g :Unite rails/config<CR>
 nnoremap <silent>[unite]s :Unite rails/spec<CR>
 nnoremap <silent>[unite]d :Unite rails/db -input=migrate<CR>
@@ -173,7 +188,10 @@ nnoremap <silent>[unite]t :Unite rails/rake<CR>
 nnoremap <silent>[unite]r :Unite rails/route<CR>
 
 
+""""""""""""""""""""""""""""""
 " neocomplete.vim
+""""""""""""""""""""""""""""""
+
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 
@@ -182,27 +200,47 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 
 
+""""""""""""""""""""""""""""""
 " auto-ctags
+""""""""""""""""""""""""""""""
+
 " バッファ保存時に自動的にCtagを作成
 let g:auto_ctags=1
 
 
+""""""""""""""""""""""""""""""
 " syntastic
-let g:syntastic_mode_map = {
-  \ 'mode': 'active',
-  \ 'active_filetypes': ['ruby']
-\ }
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_coffee_coffeelint_args = "--csv --file ~/.coffeelint.json"
+""""""""""""""""""""""""""""""
 
+" 常に規約違反を表示
+let g:syntastic_always_populate_loc_list=1
+" 規約違反時にエラーウィンドウを開く
+let g:syntastic_auto_loc_list=1
+" ファイルを開いた際に規約違反をチェック
+let g:syntastic_check_on_open=1
+" wqコマンド実行時はチェックしない
+let g:syntastic_check_on_wq=0
+" 各言語ごとの設定
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_coffee_coffeelint_args = "--file ~/.coffeelint.json"
+let g:syntastic_haml_checkers = ['haml_lint']
+let g:syntastic_scss_checkers = ['scss_lint']
+
+
+""""""""""""""""""""""""""""""
 " vim-coffee-script
+""""""""""""""""""""""""""""""
+
 " コンパイル後のjsをプレビューする
 cnoremap cf CoffeeWatch vert
 " CoffeeLintの結果を表示する
 cnoremap cl CoffeeLint -f ~/.coffeelint.json \| cwindow
 
 
+""""""""""""""""""""""""""""""
 " open-browser.vim
+""""""""""""""""""""""""""""""
+
 " カーソル下のURLをブラウザで開く
 nmap <Space>o <Plug>(openbrowser-open)
 vmap <Space>o <Plug>(openbrowser-open)
