@@ -28,6 +28,10 @@ set smarttab
 set title
 set tabstop=2
 set wildmenu
+if has("mouse")
+  set mouse=a
+  set ttymouse=xterm2
+endif
 
 set laststatus=2
 set statusline=%{fugitive#statusline()}
