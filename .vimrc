@@ -179,17 +179,17 @@ let g:auto_ctags=1
 
 " syntastic
 let g:syntastic_mode_map = {
-  \ 'mode': 'passive',
+  \ 'mode': 'active',
   \ 'active_filetypes': ['ruby']
 \ }
 let g:syntastic_ruby_checkers = ['rubocop']
-
+let g:syntastic_coffee_coffeelint_args = "--csv --file ~/.coffeelint.json"
 
 " vim-coffee-script
 " コンパイル後のjsをプレビューする
 cnoremap cf CoffeeWatch vert
 " CoffeeLintの結果を表示する
-cnoremap cl CoffeeLint \| cwindow
+cnoremap cl CoffeeLint -f ~/.coffeelint.json \| cwindow
 
 
 " open-browser.vim
