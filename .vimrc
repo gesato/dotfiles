@@ -45,9 +45,6 @@ set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}   " ファイ
 set statusline+=%=                                                   " 以降右寄せ
 set statusline+=%l/%L,%c%V                                           " 現在の行 / 総行数, 現在列
 set statusline+=%8P                                                  " カーソル位置%
-set statusline+=\ %#warningmsg#                                      " syntasticの設定
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 " window分割のalias
 nnoremap <Space>- <C-w>s
@@ -222,10 +219,10 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 " 各言語ごとの設定
 let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_coffee_coffeelint_args = "--file ~/.coffeelint.json"
 let g:syntastic_haml_checkers = ['haml_lint']
 let g:syntastic_scss_checkers = ['scss_lint']
-
+let g:syntastic_coffee_checkers = ['coffeelint']
+let g:syntastic_coffee_coffeelint_args = "--file ~/.coffeelint.json"
 
 """"""""""""""""""""""""""""""
 " vim-coffee-script
