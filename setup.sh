@@ -9,5 +9,5 @@ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.my.cnf  ~/.my.cnf
 ln -s ~/dotfiles/.grcat  ~/.grcat
 ln -s ~/dotfiles/.tmuxinator ~/
-ln -s ~/dotfiles/.lint  ~/
+ln -s ~/dotfiles/.lint ~/
 ln -s ~/dotfiles/.peco ~/
