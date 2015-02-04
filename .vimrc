@@ -224,14 +224,13 @@ let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_coffee_coffeelint_args = "--file ~/.coffeelint.json"
 
+
 """"""""""""""""""""""""""""""
 " vim-coffee-script
 """"""""""""""""""""""""""""""
 
 " コンパイル後のjsをプレビューする
-cnoremap cf CoffeeWatch vert
-" CoffeeLintの結果を表示する
-cnoremap cl CoffeeLint -f ~/.coffeelint.json \| cwindow
+cnoremap cw CoffeeWatch vert <CR>
 
 
 """"""""""""""""""""""""""""""
