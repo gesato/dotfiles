@@ -222,7 +222,8 @@ let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_haml_checkers = ['haml_lint']
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_coffee_checkers = ['coffeelint']
-let g:syntastic_coffee_coffeelint_args = "--file ~/.coffeelint.json"
+let g:syntastic_scss_scss_lint_args = "-c ~/.lint/.scss-lint.yml"
+let g:syntastic_coffee_coffeelint_args = "--file ~/.lint/.coffeelint.json"
 
 
 """"""""""""""""""""""""""""""
