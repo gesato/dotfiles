@@ -11,6 +11,7 @@ colorscheme desert
 set autoindent
 set backspace=indent,eol,start
 set clipboard+=unnamed
+set nocompatible
 set confirm
 set expandtab
 set hidden
@@ -50,11 +51,15 @@ set statusline+=%=                                                   " 以降右
 set statusline+=%l/%L,%c%V                                           " 現在の行 / 総行数, 現在列
 set statusline+=%8P                                                  " カーソル位置%
 
-" window分割のalias
+" Escを簡単に
+inoremap jj <ESC>
+onoremap jj <ESC>
+
+" window分割
 nnoremap <Space>- <C-w>s
 nnoremap <Space>\| <C-w>v
 
-" window拡大・縮小のalias
+" window拡大・縮小
 nnoremap <Space>+- 5<C-w>+
 nnoremap <Space>-- 5<C-w>-
 nnoremap <Space>+\| 5<C-w>>
@@ -75,18 +80,8 @@ autocmd BufWritePre * :%s/\s\+$//ge
 autocmd QuickFixCmdPost *grep* copen
 
 " 全角スペースを強調
-function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-endfunction
-
-if has('syntax')
-  augroup ZenkakuSpace
-    autocmd!
-    autocmd ColorScheme * call ZenkakuSpace()
-    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
-  augroup END
-  call ZenkakuSpace()
-endif
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
+match ZenkakuSpace /　/
 
 
 """"""""""""""""""""""""""""""
