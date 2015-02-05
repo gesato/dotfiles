@@ -244,7 +244,7 @@ cnoremap cw CoffeeWatch vert <CR>
 """"""""""""""""""""""""""""""
 
 " カーソル下のURLをブラウザで開く
-nnoremap <Space>o <Plug>(openbrowser-open)
-vnoremap <Space>o <Plug>(openbrowser-open)
+nmap <Space>o <Plug>(openbrowser-open)
+vmap <Space>o <Plug>(openbrowser-open)
 " Googleで検索
 nnoremap <Space>og :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
