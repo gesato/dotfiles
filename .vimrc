@@ -1,3 +1,7 @@
+" vim-tiny, vim-smallの場合、設定をスキップ
+if !1 | finish | endif
+
+
 """"""""""""""""""""""""""""""
 " 基本設定
 """"""""""""""""""""""""""""""
@@ -91,7 +95,6 @@ endif
 
 " NeoBundle
 " See https://github.com/Shougo/neobundle.vim
-if !1 | finish | endif
 
 if has('vim_starting')
   set nocompatible
@@ -241,7 +244,7 @@ cnoremap cw CoffeeWatch vert <CR>
 """"""""""""""""""""""""""""""
 
 " カーソル下のURLをブラウザで開く
-nmap <Space>o <Plug>(openbrowser-open)
-vmap <Space>o <Plug>(openbrowser-open)
+nnoremap <Space>o <Plug>(openbrowser-open)
+vnoremap <Space>o <Plug>(openbrowser-open)
 " Googleで検索
 nnoremap <Space>og :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
