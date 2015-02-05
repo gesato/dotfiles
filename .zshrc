@@ -58,5 +58,4 @@ function peco-lscd {
     cd "$dir"
   fi
 }
-zle -N peco-lscd
-bindkey '^q' peco-lscd
+alias lscd=peco-lscd
