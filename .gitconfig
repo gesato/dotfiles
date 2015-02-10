@@ -8,7 +8,7 @@
 [alias]
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
   a = add
-  b = branch -a
+  b = branch --all
   c = commit
   co = checkout
   d = diff
