@@ -1,0 +1,21 @@
+[user]
+  name = Genki Sato Mac
+  email = satogenki1115@gmail.com
+[core]
+  pager = less -RSFXin
+[color]
+  ui = auto
+[alias]
+  alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+  a = add
+  b = branch -a
+  c = commit
+  co = checkout
+  d = diff
+  dc = diff --cached
+  f = fetch --prune
+  s = status --short --branch
+  st = status
+  lg = log --graph --all --decorate --abbrev-commit --branches --date=short --pretty=format:\"%C(red)%h%C(reset) %C(green)[%ad]%C(reset) %s %C(cyan)@%an%C(reset) %C(yellow)%d%C(reset)\"
+[push]
+  default = simple
