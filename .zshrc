@@ -20,8 +20,6 @@ setopt nonomatch
 alias g='git'
 alias -g G='| grep'
 alias -g L='| less'
-alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
-alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
 
 # vim
 alias vim='env LANG=ja_JP.UTF-8 reattach-to-user-namespace /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -35,6 +33,12 @@ source ~/.tmuxinator/completion/tmuxinator.zsh
 #################
 # peco
 #################
+
+alias lscd='cd `find . -maxdepth 1 -type d | sed -e "s;\./;;" | peco --prompt "CHANGE DIRECTORY PATH>"`'
+alias pim='vim `find . -name "*" | peco --prompt "VIM OPEN FILE>"`'
+alias gim='vim `git ls-files | peco --prompt "VIM OPEN FILE>"`'
+alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
 
 # history
 function peco-select-history() {
@@ -52,12 +56,3 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
-
-# ls and cd
-function peco-lscd {
-  local dir="$( find . -maxdepth 1 -type d | sed -e 's;\./;;' | peco )"
-  if [ ! -z "$dir" ] ; then
-    cd "$dir"
-  fi
-}
-alias lscd=peco-lscd
