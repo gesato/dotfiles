@@ -10,6 +10,7 @@
   a = add
   b = branch --all
   c = commit
+  cv = commit -v
   co = checkout
   d = diff
   dc = diff --cached
