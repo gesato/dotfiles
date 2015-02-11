@@ -212,7 +212,7 @@ let g:syntastic_always_populate_loc_list=1
 " 規約違反時にエラーウィンドウを開く
 let g:syntastic_auto_loc_list=1
 " ファイルを開いた際に規約違反をチェック
-let g:syntastic_check_on_open=1
+let g:syntastic_check_on_open=0
 " wqコマンド実行時はチェックしない
 let g:syntastic_check_on_wq=0
 " 各言語ごとの設定
