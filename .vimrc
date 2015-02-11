@@ -51,6 +51,9 @@ set statusline+=%=                                                   " 以降右
 set statusline+=%l/%L,%c%V                                           " 現在の行 / 総行数, 現在列
 set statusline+=%8P                                                  " カーソル位置%
 
+" 行末移動を簡単に
+nnoremap 1 $
+
 " Escを簡単に
 inoremap jj <ESC>
 onoremap jj <ESC>
