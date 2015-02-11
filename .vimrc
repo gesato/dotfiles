@@ -57,6 +57,7 @@ nnoremap 1 $
 " Escを簡単に
 inoremap jj <ESC>
 onoremap jj <ESC>
+vnoremap jj <ESC>
 
 " window分割
 nnoremap <Space>- <C-w>s
