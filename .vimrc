@@ -39,7 +39,7 @@ if has("mouse")
 endif
 
 set laststatus=2
-set statusline=%{fugitive#statusline()}                              " gitのステータス
+" set statusline=%{fugitive#statusline()}                              " gitのステータス
 set statusline+=\ %<
 set statusline+=\ %f                                                 " ファイル名(相対パス)
 set statusline+=\ %m                                                 " 修正を表すフラグ(+ OR -)
@@ -110,7 +110,9 @@ NeoBundle 'Shougo/neomru.vim'
 " Rails向けuniteコマンドを提供
 NeoBundle 'basyura/unite-rails'
 " 補完
-NeoBundle 'Shougo/neocomplete.vim'
+if has("lua")
+  NeoBundle 'Shougo/neocomplete.vim'
+endif
 " ファイルをツリー表示
 NeoBundle 'scrooloose/nerdtree'
 " Gitを便利に
@@ -129,8 +131,6 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tpope/vim-surround'
 " *を押すとvisualモードで選択した文字列を検索
 NeoBundle 'nelstrom/vim-visual-star-search'
-" 自動でctag作成
-NeoBundle 'soramugi/auto-ctags.vim'
 " 構文解析インターフェイス
 NeoBundle 'scrooloose/syntastic'
 " true-falseなどの切替を便利に
@@ -200,34 +200,26 @@ endif
 
 
 """"""""""""""""""""""""""""""
-" auto-ctags
-""""""""""""""""""""""""""""""
-
-" バッファ保存時に自動的にCtagを作成
-let g:auto_ctags=1
-
-
-""""""""""""""""""""""""""""""
 " syntastic
 """"""""""""""""""""""""""""""
 
 " 常に規約違反を表示
-let g:syntastic_always_populate_loc_list=1
+"let g:syntastic_always_populate_loc_list=1
 " 規約違反時にエラーウィンドウを開く
-let g:syntastic_auto_loc_list=1
+"let g:syntastic_auto_loc_list=1
 " ファイルを開いた際に規約違反をチェック
-let g:syntastic_check_on_open=0
+"let g:syntastic_check_on_open=0
 " wqコマンド実行時はチェックしない
-let g:syntastic_check_on_wq=0
+"let g:syntastic_check_on_wq=0
 " 各言語ごとの設定
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_haml_checkers = ['haml_lint']
-let g:syntastic_scss_checkers = ['scss_lint']
-let g:syntastic_coffee_checkers = ['coffeelint']
-let g:syntastic_ruby_rubocop_args = "-c ~/.lint/.rubocop.yml"
-let g:syntastic_haml_haml_lint_args = "-c ~/.lint/.haml-lint.yml"
-let g:syntastic_scss_scss_lint_args = "-c ~/.lint/.scss-lint.yml"
-let g:syntastic_coffee_coffeelint_args = "--file ~/.lint/.coffeelint.json"
+"let g:syntastic_ruby_checkers = ['rubocop']
+"let g:syntastic_haml_checkers = ['haml_lint']
+"let g:syntastic_scss_checkers = ['scss_lint']
+"let g:syntastic_coffee_checkers = ['coffeelint']
+"let g:syntastic_ruby_rubocop_args = "-c ~/.lint/.rubocop.yml"
+"let g:syntastic_haml_haml_lint_args = "-c ~/.lint/.haml-lint.yml"
+"let g:syntastic_scss_scss_lint_args = "-c ~/.lint/.scss-lint.yml"
+"let g:syntastic_coffee_coffeelint_args = "--file ~/.lint/.coffeelint.json"
 
 
 """"""""""""""""""""""""""""""
@@ -235,7 +227,7 @@ let g:syntastic_coffee_coffeelint_args = "--file ~/.lint/.coffeelint.json"
 """"""""""""""""""""""""""""""
 
 " コンパイル後のjsをプレビューする
-cnoremap cw CoffeeWatch vert <CR>
+" cnoremap cw CoffeeWatch vert <CR>
 
 
 """"""""""""""""""""""""""""""
@@ -247,3 +239,9 @@ nmap <Space>o <Plug>(openbrowser-open)
 vmap <Space>o <Plug>(openbrowser-open)
 " Googleで検索
 nnoremap <Space>og :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
+
+""""""""""""""""""""""""""""""
+" emmet
+""""""""""""""""""""""""""""""
+let g:user_emmet_leader_key='<C-e>'
+

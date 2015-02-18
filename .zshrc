@@ -22,13 +22,7 @@ alias -g G='| grep'
 alias -g L='| less'
 
 # vim
-alias vim='env LANG=ja_JP.UTF-8 reattach-to-user-namespace /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-
-# jenkins
-alias jenkins='java -jar /usr/local/opt/jenkins/libexec/jenkins.war'
-
-# tmuxinator
-source ~/.tmuxinator/completion/tmuxinator.zsh
+alias vim='env LANG=ja_JP.UTF-8 reattach-to-user-namespace /usr/local/bin/vim "$@"'
 
 #################
 # peco
