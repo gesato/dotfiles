@@ -19,6 +19,7 @@ setopt nonomatch
 # alias
 eval "$(hub alias -s)"  # hub alias
 alias g='hub'
+alias -g A='| ag'
 alias -g G='| grep'
 alias -g L='| less'
 
