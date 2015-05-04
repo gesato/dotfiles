@@ -111,6 +111,8 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'basyura/unite-rails'
 " 補完
 NeoBundle 'Shougo/neocomplete.vim'
+" ag(Grepより速い検索)
+NeoBundle 'rking/ag.vim'
 " ファイルをツリー表示
 NeoBundle 'scrooloose/nerdtree'
 " Gitを便利に
