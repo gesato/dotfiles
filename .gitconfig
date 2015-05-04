@@ -11,7 +11,7 @@
   b = branch --all
   c = commit
   cv = commit -v
-  co = checkout
+  ch = checkout
   d = diff
   dc = diff --cached
   f = fetch --prune
