@@ -113,6 +113,8 @@ NeoBundle 'basyura/unite-rails'
 if has("lua")
   NeoBundle 'Shougo/neocomplete.vim'
 endif
+" ag(Grepより速い検索)
+NeoBundle 'rking/ag.vim'
 " ファイルをツリー表示
 NeoBundle 'scrooloose/nerdtree'
 " Gitを便利に

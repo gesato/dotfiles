@@ -18,6 +18,7 @@ setopt nonomatch
 
 # alias
 alias g='hub'
+alias -g A='| ag'
 alias -g G='| grep'
 alias -g L='| less'
 
