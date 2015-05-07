@@ -141,7 +141,8 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 " SCSSシンタックス
 NeoBundle 'cakebaker/scss-syntax.vim'
-
+" slim シンタックス
+NeoBundle "slim-template/vim-slim"
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
