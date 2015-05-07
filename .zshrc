@@ -17,7 +17,7 @@ source $ZSH/oh-my-zsh.sh
 setopt nonomatch
 
 # alias
-alias g='git'
+alias g='hub'
 alias -g G='| grep'
 alias -g L='| less'
 
