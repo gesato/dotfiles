@@ -18,7 +18,10 @@
   f = fetch --prune
   s = status --short --branch
   st = status
+  l = log
   lg = log --graph --all --decorate --abbrev-commit --branches --date=short --pretty=format:\"%C(red)%h%C(reset) %C(green)[%ad]%C(reset) %s %C(cyan)@%an%C(reset) %C(yellow)%d%C(reset)\"
+  p = pull
+  ph = push
 [push]
   default = simple
 [difftool "sourcetree"]
