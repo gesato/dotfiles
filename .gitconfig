@@ -22,6 +22,8 @@
   lg = log --graph --all --decorate --abbrev-commit --branches --date=short --pretty=format:\"%C(red)%h%C(reset) %C(green)[%ad]%C(reset) %s %C(cyan)@%an%C(reset) %C(yellow)%d%C(reset)\"
   p = pull
   ph = push
+  r = rebase
+  sh = show
 [push]
   default = simple
 [difftool "sourcetree"]
