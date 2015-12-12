@@ -188,6 +188,8 @@ nnoremap <silent>[unite]d :Unite rails/db -input=migrate<CR>
 nnoremap <silent>[unite]l :Unite rails/lib<CR>
 nnoremap <silent>[unite]t :Unite rails/rake<CR>
 nnoremap <silent>[unite]r :Unite rails/route<CR>
+nnoremap <silent>[unite]e :Unite rails/mailer<CR>
+nnoremap <silent>[unite]w :Unite rails/helper<CR>
 
 
 """"""""""""""""""""""""""""""
