@@ -13,6 +13,8 @@
   c = commit
   cv = commit -v
   ch = checkout
+  cp = cherry-pick
+  bl = blame
   d = diff
   dc = diff --cached
   f = fetch --prune
